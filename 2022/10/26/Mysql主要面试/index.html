@@ -550,7 +550,7 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select sid from SC where cid=&#x27;004&#x27;and score &lt;60 order by score desc; </span><br></pre></td></tr></table></figure>
 <p>50、删除“1002”同学的“001”课程的成绩 </p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">delete from Sc where sid=&#x27;1002&#x27; and cid=&#x27;001&#x27;; </span><br></pre></td></tr></table></figure>
-<h3 id="行-转列"><a href="#行-转列" class="headerlink" title="行****转列"></a><strong>行****转列</strong></h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE stu_score (</span><br><span class="line"></span><br><span class="line"> grade_id varchar(10) DEFAULT NULL,</span><br><span class="line"></span><br><span class="line"> subject_name varchar(10) DEFAULT NULL,</span><br><span class="line"></span><br><span class="line"> max_score int(10) DEFAULT NULL</span><br><span class="line"></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">insert  into `stu_score`(`grade_id`,`subject_name`,`max_score`) values(&#x27;1&#x27;,&#x27;语文&#x27;,98);</span><br><span class="line"></span><br><span class="line">insert  into `stu_score`(`grade_id`,`subject_name`,`max_score`) values(&#x27;2&#x27;,&#x27;数学&#x27;,95);</span><br><span class="line"></span><br><span class="line">insert  into `stu_score`(`grade_id`,`subject_name`,`max_score`) values(&#x27;2&#x27;,&#x27;政治&#x27;,87);</span><br><span class="line"></span><br><span class="line">insert  into `stu_score`(`grade_id`,`subject_name`,`max_score`) values(&#x27;5&#x27;,&#x27;语文&#x27;,97);</span><br><span class="line"></span><br><span class="line">insert  into `stu_score`(`grade_id`,`subject_name`,`max_score`) values(&#x27;5&#x27;,&#x27;数学&#x27;,100);</span><br><span class="line"></span><br><span class="line">insert  into `stu_score`(`grade_id`,`subject_name`,`max_score`) values(&#x27;5&#x27;,&#x27;政治&#x27;,92);</span><br></pre></td></tr></table></figure>
+<h3 id="行转列"><a href="#行转列" class="headerlink" title="行转列"></a><strong>行转列</strong></h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE stu_score (</span><br><span class="line"></span><br><span class="line"> grade_id varchar(10) DEFAULT NULL,</span><br><span class="line"></span><br><span class="line"> subject_name varchar(10) DEFAULT NULL,</span><br><span class="line"></span><br><span class="line"> max_score int(10) DEFAULT NULL</span><br><span class="line"></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">insert  into `stu_score`(`grade_id`,`subject_name`,`max_score`) values(&#x27;1&#x27;,&#x27;语文&#x27;,98);</span><br><span class="line"></span><br><span class="line">insert  into `stu_score`(`grade_id`,`subject_name`,`max_score`) values(&#x27;2&#x27;,&#x27;数学&#x27;,95);</span><br><span class="line"></span><br><span class="line">insert  into `stu_score`(`grade_id`,`subject_name`,`max_score`) values(&#x27;2&#x27;,&#x27;政治&#x27;,87);</span><br><span class="line"></span><br><span class="line">insert  into `stu_score`(`grade_id`,`subject_name`,`max_score`) values(&#x27;5&#x27;,&#x27;语文&#x27;,97);</span><br><span class="line"></span><br><span class="line">insert  into `stu_score`(`grade_id`,`subject_name`,`max_score`) values(&#x27;5&#x27;,&#x27;数学&#x27;,100);</span><br><span class="line"></span><br><span class="line">insert  into `stu_score`(`grade_id`,`subject_name`,`max_score`) values(&#x27;5&#x27;,&#x27;政治&#x27;,92);</span><br></pre></td></tr></table></figure>
 <p>步骤：</p>
 <p>1.查询出要求的结果格式</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">SELECT</span><br><span class="line"></span><br><span class="line"> CASE grade_id WHEN 1 THEN &#x27;一年级&#x27; </span><br><span class="line"></span><br><span class="line">​		WHEN 2 THEN &#x27;二年级&#x27;</span><br><span class="line"></span><br><span class="line">​		WHEN 5 THEN &#x27;五年级&#x27;</span><br><span class="line"></span><br><span class="line"> END AS &#x27;年级&#x27;,</span><br><span class="line"></span><br><span class="line"> CASE subject_name WHEN &#x27;语文&#x27; THEN max_score END AS &#x27;语文&#x27;,</span><br><span class="line"></span><br><span class="line"> CASE subject_name WHEN &#x27;数学&#x27; THEN max_score END AS &#x27;数学&#x27;,</span><br><span class="line"></span><br><span class="line"> CASE subject_name WHEN &#x27;政治&#x27; THEN max_score END AS &#x27;政治&#x27;</span><br><span class="line"></span><br><span class="line">FROM stu_score</span><br></pre></td></tr></table></figure>
@@ -699,18 +699,17 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;Current
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2022/10/26/Mysql%E4%B8%BB%E8%A6%81%E9%9D%A2%E8%AF%95/">
+                <a href="/2022/10/26/%E7%AC%AC%E4%B8%80%E7%AB%A0-%E9%9D%A2%E8%AF%95%E6%8A%80%E5%B7%A7%E7%AF%87/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="Mysql主要面试">
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="第一章 面试技巧篇">
                         
-                        <span class="card-title">Mysql主要面试</span>
+                        <span class="card-title">第一章 面试技巧篇</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -720,9 +719,9 @@
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-26
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-10-26
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -731,7 +730,6 @@
                         </span>
                     </div>
                 </div>
-
                 
             </div>
         </div>
@@ -742,13 +740,13 @@
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/10/25/test01/">
+                <a href="/2022/10/25/%E6%90%AD%E5%BB%BAhexo%20%E7%9A%84%E5%87%A0%E4%B8%AA%E4%B8%BB%E8%A6%81%E5%8D%9A%E5%AE%A2/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="test01">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
                         
-                        <span class="card-title">test01</span>
+                        <span class="card-title"></span>
                     </div>
                 </a>
                 <div class="card-content article-content">
