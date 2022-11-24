@@ -4,9 +4,9 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="01-SpringBoot-Stu, Hexo">
-    <meta name="description" content="1，SpringBoot简介SpringBoot 是由 Pivotal 团队提供的全新框架，其设计目的是用来==简化== Spring 应用的==初始搭建==以及==开发过程==。
-使用了 Spring 框架后已经简化了我们的开发。而 Sp">
+    <meta name="keywords" content="02-Springboot-Stu, Hexo">
+    <meta name="description" content="1.2  SpringBoot概述SpringBoot 是由Pivotal团队提供的全新框架，其设计目的是用来==简化==Spring应用的==初始搭建==以及==开发过程==。
+大家已经感受了 SpringBoot 程序，回过头看看 Sp">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -18,7 +18,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>01-SpringBoot-Stu | Hexo</title>
+    <title>02-Springboot-Stu | Hexo</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -335,12 +335,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">01-SpringBoot-Stu</h1>
+                    <h1 class="description center-align post-title">02-Springboot-Stu</h1>
                 </div>
             </div>
         </div>
@@ -376,7 +376,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2022-10-26
+                    2022-11-24
                 </div>
                 
 
@@ -397,134 +397,86 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="1，SpringBoot简介"><a href="#1，SpringBoot简介" class="headerlink" title="1，SpringBoot简介"></a>1，SpringBoot简介</h2><p><code>SpringBoot</code> 是由 <code>Pivotal</code> 团队提供的全新框架，其设计目的是用来==简化== <code>Spring</code> 应用的==初始搭建==以及==开发过程==。</p>
-<p>使用了 <code>Spring</code> 框架后已经简化了我们的开发。而 <code>SpringBoot</code> 又是对 <code>Spring</code> 开发进行简化的，可想而知 <code>SpringBoot</code> 使用的简单及广泛性。既然 <code>SpringBoot</code> 是用来简化 <code>Spring</code> 开发的，那我们就先回顾一下，以 <code>SpringMVC</code> 开发为例：</p>
-<ol>
-<li><strong>创建工程，并在 <code>pom.xml</code> 配置文件中配置所依赖的坐标</strong></li>
-</ol>
-<img src="/2022/10/26/01-SpringBoot-Stu/image-20210911132335452.png" style="zoom:50%;">
-
-<ol start="2">
-<li><p><strong>编写 <code>web3.0</code> 的配置类</strong></p>
-<p>作为 <code>web</code> 程序，<code>web3.0</code> 的配置类不能缺少，而这个配置类还是比较麻烦的，代码如下</p>
-</li>
-</ol>
-<p><img src="/2022/10/26/01-SpringBoot-Stu/image-20210911133112602.png"></p>
-<ol start="3">
-<li><strong>编写 <code>SpringMVC</code> 的配置类</strong></li>
-</ol>
-<p><img src="/2022/10/26/01-SpringBoot-Stu/image-20210911133219847.png"><br>​    做到这只是将工程的架子搭起来。要想被外界访问，最起码还需要提供一个 <code>Controller</code> 类，在该类中提供一个方法。</p>
-<ol start="4">
-<li><strong>编写 <code>Controller</code> 类</strong></li>
-</ol>
-<p><img src="/2022/10/26/01-SpringBoot-Stu/image-20210911133532151.png"></p>
-<p>从上面的 <code>SpringMVC</code> 程序开发可以看到，前三步都是在搭建环境，而且这三步基本都是固定的。<code>SpringBoot</code> 就是对这三步进行简化了。接下来我们通过一个入门案例来体现 <code>SpingBoot</code> 简化 <code>Spring</code> 开发。</p>
-<h3 id="1-1-SpringBoot快速入门"><a href="#1-1-SpringBoot快速入门" class="headerlink" title="1.1  SpringBoot快速入门"></a>1.1  SpringBoot快速入门</h3><h4 id="1-1-1-开发步骤"><a href="#1-1-1-开发步骤" class="headerlink" title="1.1.1  开发步骤"></a>1.1.1  开发步骤</h4><p><code>SpringBoot</code> 开发起来特别简单，分为如下几步：</p>
+                <h3 id="1-2-SpringBoot概述"><a href="#1-2-SpringBoot概述" class="headerlink" title="1.2  SpringBoot概述"></a>1.2  SpringBoot概述</h3><p><code>SpringBoot</code> 是由Pivotal团队提供的全新框架，其设计目的是用来==简化==Spring应用的==初始搭建==以及==开发过程==。</p>
+<p>大家已经感受了 <code>SpringBoot</code> 程序，回过头看看 <code>SpringBoot</code> 主要作用是什么，就是简化 <code>Spring</code> 的搭建过程和开发过程。</p>
+<p>原始 <code>Spring</code> 环境搭建和开发存在以下问题：</p>
 <ul>
-<li>创建新模块，选择Spring初始化，并配置模块相关基础信息</li>
-<li>选择当前模块需要使用的技术集</li>
-<li>开发控制器类</li>
-<li>运行自动生成的Application类</li>
+<li>配置繁琐</li>
+<li>依赖设置繁琐</li>
 </ul>
-<p>知道了 <code>SpringBoot</code> 的开发步骤后，接下来我们进行具体的操作</p>
-<h5 id="1-1-1-1-创建新模块"><a href="#1-1-1-1-创建新模块" class="headerlink" title="1.1.1.1  创建新模块"></a>1.1.1.1  创建新模块</h5><ul>
-<li>点击 <code>+</code> 选择 <code>New Module</code> 创建新模块</li>
-</ul>
-<p><img src="/2022/10/26/01-SpringBoot-Stu/image-20210911155135008.png"></p>
+<p><code>SpringBoot</code> 程序优点恰巧就是针对 <code>Spring</code> 的缺点</p>
 <ul>
-<li><p>选择 <code>Spring Initializr</code> ，用来创建 <code>SpringBoot</code> 工程</p>
-<p>以前我们选择的是 <code>Maven</code> ，今天选择 <code>Spring Initializr</code> 来快速构建 <code>SpringBoot</code> 工程。而在 <code>Module SDK</code> 这一项选择我们安装的 <code>JDK</code> 版本。</p>
+<li>自动配置。这个是用来解决 <code>Spring</code> 程序配置繁琐的问题</li>
+<li>起步依赖。这个是用来解决 <code>Spring</code> 程序依赖设置繁琐的问题</li>
+<li>辅助功能（内置服务器,…）。我们在启动 <code>SpringBoot</code> 程序时既没有使用本地的 <code>tomcat</code> 也没有使用 <code>tomcat</code> 插件，而是使用 <code>SpringBoot</code> 内置的服务器。</li>
+</ul>
+<p>接下来我们来说一下 <code>SpringBoot</code> 的起步依赖</p>
+<h4 id="1-2-1-起步依赖"><a href="#1-2-1-起步依赖" class="headerlink" title="1.2.1  起步依赖"></a>1.2.1  起步依赖</h4><p>我们使用 <code>Spring Initializr</code>  方式创建的 <code>Maven</code> 工程的的 <code>pom.xml</code> 配置文件中自动生成了很多包含 <code>starter</code> 的依赖，如下图</p>
+<p><img src="/2022/11/24/02-Springboot-Stu/image-20210918220338109.png"></p>
+<p>这些依赖就是==启动依赖==，接下来我们探究一下他是如何实现的。</p>
+<h5 id="1-2-1-1-探索父工程"><a href="#1-2-1-1-探索父工程" class="headerlink" title="1.2.1.1  探索父工程"></a>1.2.1.1  探索父工程</h5><p>从上面的文件中可以看到指定了一个父工程，我们进入到父工程，发现父工程中又指定了一个父工程，如下图所示</p>
+<p><img src="/2022/11/24/02-Springboot-Stu/image-20210918220855024.png"></p>
+<p>再进入到该父工程中，在该工程中我们可以看到配置内容结构如下图所示</p>
+<p><img src="/2022/11/24/02-Springboot-Stu/image-20210918221042947.png"></p>
+<p>上图中的 <code>properties</code> 标签中定义了各个技术软件依赖的版本，避免了我们在使用不同软件技术时考虑版本的兼容问题。在 <code>properties</code> 中我们找 <code>servlet</code>  和 <code>mysql</code> 的版本如下图</p>
+<p><img src="/2022/11/24/02-Springboot-Stu/image-20210918221511249.png"></p>
+<p><code>dependencyManagement</code> 标签是进行依赖版本锁定，但是并没有导入对应的依赖；如果我们工程需要那个依赖只需要引入依赖的 <code>groupid</code> 和 <code>artifactId</code> 不需要定义 <code>version</code>。</p>
+<p>而 <code>build</code> 标签中也对插件的版本进行了锁定，如下图</p>
+<p><img src="/2022/11/24/02-Springboot-Stu/image-20210918221942453.png"></p>
+<p>看完了父工程中 <code>pom.xml</code> 的配置后不难理解我们工程的的依赖为什么都没有配置 <code>version</code>。</p>
+<h5 id="1-2-1-2-探索依赖"><a href="#1-2-1-2-探索依赖" class="headerlink" title="1.2.1.2  探索依赖"></a>1.2.1.2  探索依赖</h5><p>在我们创建的工程中的 <code>pom.xml</code> 中配置了如下依赖</p>
+<p><img src="/2022/11/24/02-Springboot-Stu/image-20210918222321402.png"></p>
+<p>进入到该依赖，查看 <code>pom.xml</code> 的依赖会发现它引入了如下的依赖</p>
+<p><img src="/2022/11/24/02-Springboot-Stu/image-20210918222607469.png"></p>
+<p>里面的引入了 <code>spring-web</code> 和 <code>spring-webmvc</code> 的依赖，这就是为什么我们的工程中没有依赖这两个包还能正常使用 <code>springMVC</code> 中的注解的原因。</p>
+<p>而依赖 <code>spring-boot-starter-tomcat</code> ，从名字基本能确认内部依赖了 <code>tomcat</code>，所以我们的工程才能正常启动。</p>
+<p>==结论：以后需要使用技术，只需要引入该技术对应的起步依赖即可==</p>
+<h5 id="1-2-1-3-小结"><a href="#1-2-1-3-小结" class="headerlink" title="1.2.1.3  小结"></a>1.2.1.3  小结</h5><p><strong>starter</strong></p>
+<ul>
+<li><code>SpringBoot</code> 中常见项目名称，定义了当前项目使用的所有项目坐标，以达到减少依赖配置的目的</li>
+</ul>
+<p><strong>parent</strong></p>
+<ul>
+<li><p>所有 <code>SpringBoot</code> 项目要继承的项目，定义了若干个坐标版本号（依赖管理，而非依赖），以达到减少依赖冲突的目的</p>
+</li>
+<li><p><code>spring-boot-starter-parent</code>（2.5.0）与 <code>spring-boot-starter-parent</code>（2.4.6）共计57处坐标版本不同</p>
 </li>
 </ul>
-<p><img src="/2022/10/26/01-SpringBoot-Stu/image-20210911155249493.png"></p>
+<p><strong>实际开发</strong></p>
 <ul>
-<li><p>对 <code>SpringBoot</code> 工程进行相关的设置</p>
-<p>我们使用这种方式构建的 <code>SpringBoot</code> 工程其实也是 <code>Maven</code> 工程，而该方式只是一种快速构建的方式而已。</p>
-</li>
-</ul>
-<p> <img src="/2022/10/26/01-SpringBoot-Stu/image-20210911155916899.png"></p>
+<li><p>使用任意坐标时，仅书写GAV中的G和A，V由SpringBoot提供</p>
 <blockquote>
-<p>==注意：打包方式这里需要设置为 <code>Jar</code>==</p>
+<p>G：groupid</p>
+<p>A：artifactId</p>
+<p>V：version</p>
 </blockquote>
-<ul>
-<li><p>选中 <code>Web</code>，然后勾选 <code>Spring Web</code></p>
-<p>由于我们需要开发一个 <code>web</code> 程序，使用到了 <code>SpringMVC</code> 技术，所以按照下图红框进行勾选</p>
+</li>
+<li><p>如发生坐标错误，再指定version（要小心版本冲突）</p>
 </li>
 </ul>
-<p><img src="/2022/10/26/01-SpringBoot-Stu/image-20210911160040328.png"></p>
-<ul>
-<li>下图界面不需要任何修改，直接点击 <code>Finish</code> 完成 <code>SpringBoot</code> 工程的构建</li>
-</ul>
-<p><img src="/2022/10/26/01-SpringBoot-Stu/image-20210911160353534.png"></p>
-<p>经过以上步骤后就创建了如下结构的模块，它会帮我们自动生成一个 <code>Application</code> 类，而该类一会再启动服务器时会用到</p>
-<p><img src="/2022/10/26/01-SpringBoot-Stu/image-20210911160541833.png"></p>
-<blockquote>
+<h4 id="1-2-2-程序启动"><a href="#1-2-2-程序启动" class="headerlink" title="1.2.2  程序启动"></a>1.2.2  程序启动</h4><p>创建的每一个 <code>SpringBoot</code> 程序时都包含一个类似于下面的类，我们将这个类称作引导类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Springboot01QuickstartApplication</span> &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        SpringApplication.run(Springboot01QuickstartApplication.class, args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>==注意：==</p>
-<ol>
-<li><p>在创建好的工程中不需要创建配置类</p>
-</li>
-<li><p>创建好的项目会自动生成其他的一些文件，而这些文件目前对我们来说没有任何作用，所以可以将这些文件删除。</p>
-<p>可以删除的目录和文件如下：</p>
 <ul>
-<li><code>.mvn</code>    </li>
-<li><code>.gitignore</code></li>
-<li><code>HELP.md</code></li>
-<li><code>mvnw</code></li>
-<li><code>mvnw.cmd</code></li>
-</ul>
+<li><p><code>SpringBoot</code> 在创建项目时，采用jar的打包方式</p>
 </li>
-</ol>
-</blockquote>
-<h5 id="1-1-1-2-创建-Controller"><a href="#1-1-1-2-创建-Controller" class="headerlink" title="1.1.1.2  创建 Controller"></a>1.1.1.2  创建 <code>Controller</code></h5><p>在  <code>com.itheima.controller</code> 包下创建 <code>BookController</code> ，代码如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@RequestMapping(&quot;/books&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">BookController</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@GetMapping(&quot;/&#123;id&#125;&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">getById</span><span class="params">(<span class="meta">@PathVariable</span> Integer id)</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;id ==&gt; &quot;</span>+id);</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;hello , spring boot!&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h5 id="1-1-1-3-启动服务器"><a href="#1-1-1-3-启动服务器" class="headerlink" title="1.1.1.3  启动服务器"></a>1.1.1.3  启动服务器</h5><p>运行 <code>SpringBoot</code> 工程不需要使用本地的 <code>Tomcat</code> 和 插件，只运行项目 <code>com.itheima</code> 包下的 <code>Application</code> 类，我们就可以在控制台看出如下信息</p>
-<p><img src="/2022/10/26/01-SpringBoot-Stu/image-20210911165642280.png"></p>
-<h5 id="1-1-1-4-进行测试"><a href="#1-1-1-4-进行测试" class="headerlink" title="1.1.1.4  进行测试"></a>1.1.1.4  进行测试</h5><p>使用 <code>Postman</code> 工具来测试我们的程序</p>
-<p><img src="/2022/10/26/01-SpringBoot-Stu/image-20210911160850121.png"></p>
-<p>通过上面的入门案例我们可以看到使用 <code>SpringBoot</code> 进行开发，使整个开发变得很简单，那它是如何做到的呢？</p>
-<p>要研究这个问题，我们需要看看 <code>Application</code> 类和 <code>pom.xml</code> 都书写了什么。先看看 <code>Applicaion</code> 类，该类内容如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Application</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        SpringApplication.run(Application.class, args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>这个类中的东西很简单，就在类上添加了一个 <code>@SpringBootApplication</code> 注解，而在主方法中就一行代码。我们在启动服务器时就是执行的该类中的主方法。</p>
-<p>再看看 <code>pom.xml</code> 配置文件中的内容</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;UTF-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://maven.apache.org/POM/4.0.0&quot;</span> <span class="attr">xmlns:xsi</span>=<span class="string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span></span><br><span class="line"><span class="tag">         <span class="attr">xsi:schemaLocation</span>=<span class="string">&quot;http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">modelVersion</span>&gt;</span>4.0.0<span class="tag">&lt;/<span class="name">modelVersion</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">&lt;!--指定了一个父工程，父工程中的东西在该工程中可以继承过来使用--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">parent</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-parent<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.5.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">parent</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.itheima<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>springboot_01_quickstart<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.0.1-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!--JDK 的版本--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">java.version</span>&gt;</span>8<span class="tag">&lt;/<span class="name">java.version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--该依赖就是我们在创建 SpringBoot 工程勾选的那个 Spring Web 产生的--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">		<span class="comment">&lt;!--这个是单元测试的依赖，我们现在没有进行单元测试，所以这个依赖现在可以没有--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-test<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">scope</span>&gt;</span>test<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!--这个插件是在打包时需要的，而这里暂时还没有用到--&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>我们代码之所以能简化，就是因为指定的父工程和 <code>Spring Web</code> 依赖实现的。具体的我们后面在聊。</p>
-<h4 id="1-1-2-对比"><a href="#1-1-2-对比" class="headerlink" title="1.1.2  对比"></a>1.1.2  对比</h4><p>做完 <code>SpringBoot</code> 的入门案例后，接下来对比一下 <code>Spring</code> 程序和 <code>SpringBoot</code> 程序。如下图</p>
-<p><img src="/2022/10/26/01-SpringBoot-Stu/image-20210911172200292.png"></p>
-<ul>
-<li><p><strong>坐标</strong></p>
-<p><code>Spring</code> 程序中的坐标需要自己编写，而且坐标非常多</p>
-<p><code>SpringBoot</code> 程序中的坐标是我们在创建工程时进行勾选自动生成的</p>
-</li>
-<li><p><strong>web3.0配置类</strong></p>
-<p><code>Spring</code> 程序需要自己编写这个配置类。这个配置类大家之前编写过，肯定感觉很复杂</p>
-<p><code>SpringBoot</code> 程序不需要我们自己书写</p>
-</li>
-<li><p><strong>配置类</strong></p>
-<p><code>Spring/SpringMVC</code> 程序的配置类需要自己书写。而 <code>SpringBoot</code>  程序则不需要书写。</p>
+<li><p><code>SpringBoot</code> 的引导类是项目的入口，运行 <code>main</code> 方法就可以启动项目</p>
+<p>因为我们在 <code>pom.xml</code> 中配置了 <code>spring-boot-starter-web</code> 依赖，而该依赖通过前面的学习知道它依赖 <code>tomcat</code> ，所以运行 <code>main</code> 方法就可以使用 <code>tomcat</code> 启动咱们的工程。</p>
 </li>
 </ul>
-<blockquote>
-<p>==注意：基于Idea的 <code>Spring Initializr</code> 快速构建 <code>SpringBoot</code> 工程时需要联网。== </p>
-</blockquote>
-<h4 id="1-1-3-官网构建工程"><a href="#1-1-3-官网构建工程" class="headerlink" title="1.1.3  官网构建工程"></a>1.1.3  官网构建工程</h4><p>在入门案例中之所以能快速构建 <code>SpringBoot</code> 工程，是因为 <code>Idea</code> 使用了官网提供了快速构建 <code>SpringBoot</code> 工程的组件实现的。那如何在官网进行工程构建呢？通过如下步骤构建</p>
-<h5 id="1-1-3-1-进入SpringBoot官网"><a href="#1-1-3-1-进入SpringBoot官网" class="headerlink" title="1.1.3.1  进入SpringBoot官网"></a>1.1.3.1  进入SpringBoot官网</h5><p>官网地址如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://spring.io/projects/spring-boot</span><br></pre></td></tr></table></figure>
+<h4 id="1-2-3-切换web服务器"><a href="#1-2-3-切换web服务器" class="headerlink" title="1.2.3  切换web服务器"></a>1.2.3  切换web服务器</h4><p>现在我们启动工程使用的是 <code>tomcat</code> 服务器，那能不能不使用 <code>tomcat</code> 而使用 <code>jetty</code> 服务器，<code>jetty</code> 在我们 <code>maven</code> 高级时讲 <code>maven</code> 私服使用的服务器。而要切换 <code>web</code> 服务器就需要将默认的 <code>tomcat</code> 服务器给排除掉，怎么排除呢？使用 <code>exclusion</code> 标签</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">exclusions</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">exclusion</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-tomcat<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">exclusion</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">exclusions</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>进入到 <code>SpringBoot</code> 官网后拖到最下方就可以看到如下内容</p>
-<p><img src="/2022/10/26/01-SpringBoot-Stu/image-20210911173712014.png"></p>
-<p>然后点击 <code>Spring Initializr</code> 超链接就会跳转到如下页面</p>
-<p><img src="/2022/10/26/01-SpringBoot-Stu/image-20210911174110687.png"></p>
-<p>这个页面内容是不是感觉很眼熟的，这和我们使用 <code>Idea</code> 快速构建 <code>SpringBoot</code> 工程的界面基本相同。在上面页面输入对应的信息</p>
-<h5 id="1-1-3-2-选择依赖"><a href="#1-1-3-2-选择依赖" class="headerlink" title="1.1.3.2  选择依赖"></a>1.1.3.2  选择依赖</h5><p>选择 <code>Spring Web</code> 可以点击上图右上角的 <code>ADD DEPENDENCIES... CTRL + B</code> 按钮，就会出现如下界面</p>
-<p><img src="/2022/10/26/01-SpringBoot-Stu/image-20210911174650679.png"></p>
-<h5 id="1-1-3-3-生成工程"><a href="#1-1-3-3-生成工程" class="headerlink" title="1.1.3.3  生成工程"></a>1.1.3.3  生成工程</h5><p>以上步骤完成后就可以生成 <code>SpringBoot</code> 工程了。在页面的最下方点击 <code>GENERATE CTRL + 回车</code> 按钮生成工程并下载到本地，如下图所示<br><img src="/2022/10/26/01-SpringBoot-Stu/image-20210911175222857.png"></p>
-<p>打开下载好的压缩包可以看到工程结构和使用 <code>Idea</code> 生成的一模一样，如下图</p>
-<p><img src="/2022/10/26/01-SpringBoot-Stu/image-20210911175502834.png"></p>
-<p>而打开 <code>pom.xml</code> 文件，里面也包含了父工程和 <code>Spring Web</code> 的依赖。</p>
-<p>通过上面官网的操作，我们知道 <code>Idea</code> 中快速构建 <code>SpringBoot</code> 工程其实就是使用的官网的快速构建组件，那以后即使没有 <code>Idea</code> 也可以使用官网的方式构建 <code>SpringBoot</code> 工程。</p>
+<p>现在我们运行引导类可以吗？运行一下试试，打印的日志信息如下</p>
+<p><img src="/2022/11/24/02-Springboot-Stu/image-20210918232512707.png"></p>
+<p>程序直接停止了，为什么呢？那是因为排除了 <code>tomcat</code> 服务器，程序中就没有服务器了。所以此时不光要排除 <code>tomcat</code> 服务器，还要引入 <code>jetty</code> 服务器。在 <code>pom.xml</code> 中因为 <code>jetty</code> 的起步依赖</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-jetty<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>接下来再次运行引导类，在日志信息中就可以看到使用的是 <code>jetty</code> 服务器</p>
+<p><img src="/2022/11/24/02-Springboot-Stu/image-20210918232904623.png"></p>
+<p><strong>小结：</strong></p>
+<p>通过切换服务器，我们不难发现在使用 <code>SpringBoot</code> 换技术时只需要导入该技术的起步依赖即可。</p>
 
                 
             </div>
@@ -551,7 +503,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/2022/10/26/01-SpringBoot-Stu/">http://example.com/2022/10/26/01-SpringBoot-Stu/</a>
+                    <a href="http://example.com/2022/11/24/02-Springboot-Stu/">http://example.com/2022/11/24/02-Springboot-Stu/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -665,9 +617,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
             <div class="card">
                 <a href="/2022/11/24/02-Springboot-Stu/">
                     <div class="card-image">
@@ -685,9 +638,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-11-24
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-11-24
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -696,6 +649,7 @@
                         </span>
                     </div>
                 </div>
+
                 
             </div>
         </div>
@@ -706,13 +660,13 @@
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/10/26/%E7%AC%AC%E4%B8%80%E7%AB%A0-%E9%9D%A2%E8%AF%95%E6%8A%80%E5%B7%A7%E7%AF%87/">
+                <a href="/2022/10/26/01-SpringBoot-Stu/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="第一章 面试技巧篇">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="01-SpringBoot-Stu">
                         
-                        <span class="card-title">第一章 面试技巧篇</span>
+                        <span class="card-title">01-SpringBoot-Stu</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
