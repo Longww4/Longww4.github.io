@@ -4,8 +4,19 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="04-Springboot-Stu, Hexo">
-    <meta name="description" content="2.4  多环境配置以后在工作中，对于开发环境、测试环境、生产环境的配置肯定都不相同，比如我们开发阶段会在自己的电脑上安装 mysql ，连接自己电脑上的 mysql 即可，但是项目开发完毕后要上线就需要该配置，将环境的配置改为线上环境的。">
+    <meta name="keywords" content="05-springboot配置mybatis-puls的方法, Hexo">
+    <meta name="description" content="4.2  SpringBoot整合mybatis4.2.1  创建模块
+创建新模块，选择 Spring Initializr，并配置模块相关基础信息
+
+
+
+
+选择当前模块需要使用的技术集（MyBatis、MySQL）
+
+
+
+
+4.2.2  ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +28,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>04-Springboot-Stu | Hexo</title>
+    <title>05-springboot配置mybatis-puls的方法 | Hexo</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -334,12 +345,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">04-Springboot-Stu</h1>
+                    <h1 class="description center-align post-title">05-springboot配置mybatis-puls的方法</h1>
                 </div>
             </div>
         </div>
@@ -396,132 +407,83 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="2-4-多环境配置"><a href="#2-4-多环境配置" class="headerlink" title="2.4  多环境配置"></a>2.4  多环境配置</h3><p>以后在工作中，对于开发环境、测试环境、生产环境的配置肯定都不相同，比如我们开发阶段会在自己的电脑上安装 <code>mysql</code> ，连接自己电脑上的 <code>mysql</code> 即可，但是项目开发完毕后要上线就需要该配置，将环境的配置改为线上环境的。</p>
-<p><img src="/2022/11/26/04-Springboot-Stu/image-20210917185253557.png"></p>
-<p>来回的修改配置会很麻烦，而 <code>SpringBoot</code> 给开发者提供了多环境的快捷配置，需要切换环境时只需要改一个配置即可。不同类型的配置文件多环境开发的配置都不相同，接下来对不同类型的配置文件进行说明</p>
-<h4 id="2-4-1-yaml文件"><a href="#2-4-1-yaml文件" class="headerlink" title="2.4.1  yaml文件"></a>2.4.1  yaml文件</h4><p>在 <code>application.yml</code> 中使用 <code>---</code> 来分割不同的配置，内容如下</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#开发</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">profiles:</span> <span class="string">dev</span> <span class="comment">#给开发环境起的名字</span></span><br><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="attr">port:</span> <span class="number">80</span></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="comment">#生产</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">profiles:</span> <span class="string">pro</span> <span class="comment">#给生产环境起的名字</span></span><br><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="attr">port:</span> <span class="number">81</span></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="comment">#测试</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">profiles:</span> <span class="string">test</span> <span class="comment">#给测试环境起的名字</span></span><br><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="attr">port:</span> <span class="number">82</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
-
-<p>上面配置中 <code>spring.profiles</code> 是用来给不同的配置起名字的。而如何告知 <code>SpringBoot</code> 使用哪段配置呢？可以使用如下配置来启用都一段配置</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#设置启用的环境</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">profiles:</span></span><br><span class="line">    <span class="attr">active:</span> <span class="string">dev</span>  <span class="comment">#表示使用的是开发环境的配置</span></span><br></pre></td></tr></table></figure>
-
-<p>综上所述，<code>application.yml</code> 配置文件内容如下</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#设置启用的环境</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">profiles:</span></span><br><span class="line">    <span class="attr">active:</span> <span class="string">dev</span></span><br><span class="line"></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="comment">#开发</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">profiles:</span> <span class="string">dev</span></span><br><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="attr">port:</span> <span class="number">80</span></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="comment">#生产</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">profiles:</span> <span class="string">pro</span></span><br><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="attr">port:</span> <span class="number">81</span></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="comment">#测试</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">profiles:</span> <span class="string">test</span></span><br><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="attr">port:</span> <span class="number">82</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
-
-<p>==注意：==</p>
-<p>在上面配置中给不同配置起名字的 <code>spring.profiles</code> 配置项已经过时。最新用来起名字的配置项是 </p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#开发</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">config:</span></span><br><span class="line">    <span class="attr">activate:</span></span><br><span class="line">      <span class="attr">on-profile:</span> <span class="string">dev</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="2-4-2-properties文件"><a href="#2-4-2-properties文件" class="headerlink" title="2.4.2  properties文件"></a>2.4.2  properties文件</h4><p><code>properties</code> 类型的配置文件配置多环境需要定义不同的配置文件</p>
-<ul>
-<li><p><code>application-dev.properties</code> 是开发环境的配置文件。我们在该文件中配置端口号为 <code>80</code></p>
-<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">server.port</span>=<span class="string">80</span></span><br></pre></td></tr></table></figure></li>
-<li><p><code>application-test.properties</code> 是测试环境的配置文件。我们在该文件中配置端口号为 <code>81</code></p>
-<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">server.port</span>=<span class="string">81</span></span><br></pre></td></tr></table></figure></li>
-<li><p><code>application-pro.properties</code> 是生产环境的配置文件。我们在该文件中配置端口号为 <code>82</code></p>
-<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">server.port</span>=<span class="string">82</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-<p><code>SpringBoot</code> 只会默认加载名为 <code>application.properties</code> 的配置文件，所以需要在 <code>application.properties</code> 配置文件中设置启用哪个配置文件，配置如下:</p>
-<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spring.profiles.active</span>=<span class="string">pro</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="2-4-3-命令行启动参数设置"><a href="#2-4-3-命令行启动参数设置" class="headerlink" title="2.4.3  命令行启动参数设置"></a>2.4.3  命令行启动参数设置</h4><p>使用 <code>SpringBoot</code> 开发的程序以后都是打成 <code>jar</code> 包，通过 <code>java -jar xxx.jar</code> 的方式启动服务的。那么就存在一个问题，如何切换环境呢？因为配置文件打到的jar包中了。</p>
-<p>我们知道 <code>jar</code> 包其实就是一个压缩包，可以解压缩，然后修改配置，最后再打成jar包就可以了。这种方式显然有点麻烦，而 <code>SpringBoot</code> 提供了在运行 <code>jar</code> 时设置开启指定的环境的方式，如下</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java –jar xxx.jar –-spring.profiles.active=test</span><br></pre></td></tr></table></figure>
-
-<p>那么这种方式能不能临时修改端口号呢？也是可以的，可以通过如下方式</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java –jar xxx.jar –-server.port=88</span><br></pre></td></tr></table></figure>
-
-<p>当然也可以同时设置多个配置，比如即指定启用哪个环境配置，又临时指定端口，如下</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java –jar springboot.jar –-server.port=88 –-spring.profiles.active=test</span><br></pre></td></tr></table></figure>
-
-<p>大家进行测试后就会发现命令行设置的端口号优先级高（也就是使用的是命令行设置的端口号），配置的优先级其实 <code>SpringBoot</code> 官网已经进行了说明，参见 :</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://docs.spring.io/spring-boot/docs/current/reference/html/spring-boot-features.html#boot-features-external-config</span><br></pre></td></tr></table></figure>
-
-<p>进入上面网站后会看到如下页面</p>
-<p><img src="/2022/11/26/04-Springboot-Stu/image-20210917193910191.png"></p>
-<p>如果使用了多种方式配合同一个配置项，优先级高的生效。</p>
-<h3 id="2-5-配置文件分类"><a href="#2-5-配置文件分类" class="headerlink" title="2.5  配置文件分类"></a>2.5  配置文件分类</h3><p><img src="/2022/11/26/04-Springboot-Stu/image-20210917194941597.png"></p>
-<p>有这样的场景，我们开发完毕后需要测试人员进行测试，由于测试环境和开发环境的很多配置都不相同，所以测试人员在运行我们的工程时需要临时修改很多配置，如下</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java –jar springboot.jar –-spring.profiles.active=test --server.port=85 --server.servlet.context-path=/heima --server.tomcat.connection-timeout=-1 …… …… …… …… ……</span><br></pre></td></tr></table></figure>
-
-<p>针对这种情况，<code>SpringBoot</code> 定义了配置文件不同的放置的位置；而放在不同位置的优先级时不同的。</p>
-<p><code>SpringBoot</code> 中4级配置文件放置位置：</p>
-<ul>
-<li>1级：classpath：application.yml  </li>
-<li>2级：classpath：config/application.yml</li>
-<li>3级：file ：application.yml</li>
-<li>4级：file ：config/application.yml </li>
-</ul>
-<blockquote>
-<p>==说明：==级别越高优先级越高</p>
-</blockquote>
-<h4 id="2-5-1-代码演示"><a href="#2-5-1-代码演示" class="headerlink" title="2.5.1  代码演示"></a>2.5.1  代码演示</h4><p>在这里我们只演示不同级别配置文件放置位置的优先级。</p>
-<h5 id="2-5-1-1-环境准备"><a href="#2-5-1-1-环境准备" class="headerlink" title="2.5.1.1  环境准备"></a>2.5.1.1  环境准备</h5><p>创建一个名为 <code>springboot_06_config_file</code> 的 <code>SpringBoot</code> 工程，目录结构如下</p>
-<p><img src="/2022/11/26/04-Springboot-Stu/image-20210917200241282.png"></p>
-<p>在 <code>resources</code> 下创建一个名为 <code>config</code> 的目录，在该目录中创建 <code>application.yml</code> 配置文件，而在该配置文件中将端口号设置为 <code>81</code>，内容如下</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="attr">port:</span> <span class="number">81</span></span><br></pre></td></tr></table></figure>
-
-<p>而在 <code>resources</code> 下创建的 <code>application.yml</code> 配置文件中并将端口号设置为 <code>80</code>，内容如下</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="attr">port:</span> <span class="number">80</span></span><br></pre></td></tr></table></figure>
-
-<h5 id="2-5-1-2-验证1级和2级的优先级"><a href="#2-5-1-2-验证1级和2级的优先级" class="headerlink" title="2.5.1.2  验证1级和2级的优先级"></a>2.5.1.2  验证1级和2级的优先级</h5><p>运行启动引导类，可以在控制台看到如下日志信息</p>
-<p><img src="/2022/11/26/04-Springboot-Stu/image-20210917200805389.png"></p>
-<p>通过这个结果可以得出==类路径下的 <code>config</code> 下的配置文件优先于类路径下的配置文件。==</p>
-<h5 id="2-5-1-3-验证2级和4级的优先级"><a href="#2-5-1-3-验证2级和4级的优先级" class="headerlink" title="2.5.1.3  验证2级和4级的优先级"></a>2.5.1.3  验证2级和4级的优先级</h5><p>要验证4级，按照以下步骤完成</p>
-<ul>
-<li><p>将工程打成 <code>jar</code> 包</p>
-<p>点击工程的 <code>package</code> 来打 <code>jar</code> 包</p>
+                <h3 id="4-2-SpringBoot整合mybatis"><a href="#4-2-SpringBoot整合mybatis" class="headerlink" title="4.2  SpringBoot整合mybatis"></a>4.2  SpringBoot整合mybatis</h3><h4 id="4-2-1-创建模块"><a href="#4-2-1-创建模块" class="headerlink" title="4.2.1  创建模块"></a>4.2.1  创建模块</h4><ul>
+<li><p>创建新模块，选择 <code>Spring Initializr</code>，并配置模块相关基础信息</p>
+</li>
+<li></li>
+<li><p><img src="/2022/11/26/05-springboot%E9%85%8D%E7%BD%AEmybatis-puls%E7%9A%84%E6%96%B9%E6%B3%95/image-20210917215913779.png"></p>
+</li>
+<li><p>选择当前模块需要使用的技术集（MyBatis、MySQL）</p>
+</li>
+<li><p><img src="/2022/11/26/05-springboot%E9%85%8D%E7%BD%AEmybatis-puls%E7%9A%84%E6%96%B9%E6%B3%95/image-20210917215958091.png"></p>
 </li>
 </ul>
-<p><img src="/2022/11/26/04-Springboot-Stu/image-20210917201243721.png"></p>
-<ul>
-<li><p>在硬盘上找到 <code>jar</code> 包所在位置</p>
-</li>
-<li><p><img src="/2022/11/26/04-Springboot-Stu/image-20210917201523669.png"></p>
-</li>
-<li><p>在 <code>jar</code> 包所在位置创建 <code>config</code> 文件夹，在该文件夹下创建 <code>application.yml</code> 配置文件，而在该配合文件中将端口号设置为 <code>82</code> </p>
-</li>
-<li><p>在命令行使用以下命令运行程序</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -jar springboot_06_config_file-0.0.1-SNAPSHOT.jar</span><br></pre></td></tr></table></figure>
+<h4 id="4-2-2-定义实体类"><a href="#4-2-2-定义实体类" class="headerlink" title="4.2.2  定义实体类"></a>4.2.2  定义实体类</h4><p>在 <code>com.itheima.domain</code> 包下定义实体类 <code>Book</code>，内容如下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Book</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> Integer id;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> String type;</span><br><span class="line">    <span class="keyword">private</span> String description;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//setter and  getter</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">//toString</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>运行后日志信息如下</p>
-</li>
-</ul>
-<p><img src="/2022/11/26/04-Springboot-Stu/image-20210917201922831.png"></p>
-<p>  通过这个结果可以得出==file： <code>config</code> 下的配置文件优先于类路径下的配置文件。==</p>
+<h4 id="4-2-3-定义dao接口"><a href="#4-2-3-定义dao接口" class="headerlink" title="4.2.3  定义dao接口"></a>4.2.3  定义dao接口</h4><p>在 <code>com.itheima.dao</code> 包下定义 <code>BookDao</code> 接口，内容如下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">BookDao</span> &#123;</span><br><span class="line">    <span class="meta">@Select(&quot;select * from tbl_book where id = #&#123;id&#125;&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> Book <span class="title function_">getById</span><span class="params">(Integer id)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-2-4-定义测试类"><a href="#4-2-4-定义测试类" class="headerlink" title="4.2.4  定义测试类"></a>4.2.4  定义测试类</h4><p>在 <code>test/java</code> 下定义包 <code>com.itheima</code> ，在该包下测试类，内容如下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootTest</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Springboot08MybatisApplicationTests</span> &#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Autowired</span></span><br><span class="line">	<span class="keyword">private</span> BookDao bookDao;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Test</span></span><br><span class="line">	<span class="keyword">void</span> <span class="title function_">testGetById</span><span class="params">()</span> &#123;</span><br><span class="line">		<span class="type">Book</span> <span class="variable">book</span> <span class="operator">=</span> bookDao.getById(<span class="number">1</span>);</span><br><span class="line">		System.out.println(book);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-2-5-编写配置"><a href="#4-2-5-编写配置" class="headerlink" title="4.2.5  编写配置"></a>4.2.5  编写配置</h4><p>我们代码中并没有指定连接哪儿个数据库，用户名是什么，密码是什么。所以这部分需要在 <code>SpringBoot</code> 的配置文件中进行配合。</p>
+<p>在 <code>application.yml</code> 配置文件中配置如下内容</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">datasource:</span></span><br><span class="line">    <span class="attr">driver-class-name:</span> <span class="string">com.mysql.jdbc.Driver</span></span><br><span class="line">    <span class="attr">url:</span> <span class="string">jdbc:mysql://localhost:3306/ssm_db</span></span><br><span class="line">    <span class="attr">username:</span> <span class="string">root</span></span><br><span class="line">    <span class="attr">password:</span> <span class="string">root</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="4-2-6-测试"><a href="#4-2-6-测试" class="headerlink" title="4.2.6  测试"></a>4.2.6  测试</h4><p>运行测试方法，我们会看到如下错误信息</p>
+<p><img src="/2022/11/26/05-springboot%E9%85%8D%E7%BD%AEmybatis-puls%E7%9A%84%E6%96%B9%E6%B3%95/image-20210917221427930.png"></p>
+<p>错误信息显示在 <code>Spring</code> 容器中没有 <code>BookDao</code> 类型的 <code>bean</code>。为什么会出现这种情况呢？</p>
+<p>原因是 <code>Mybatis</code> 会扫描接口并创建接口的代码对象交给 <code>Spring</code> 管理，但是现在并没有告诉 <code>Mybatis</code> 哪个是 <code>dao</code> 接口。而我们要解决这个问题需要在<code>BookDao</code> 接口上使用 <code>@Mapper</code> ，<code>BookDao</code> 接口改进为</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Mapper</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">BookDao</span> &#123;</span><br><span class="line">    <span class="meta">@Select(&quot;select * from tbl_book where id = #&#123;id&#125;&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> Book <span class="title function_">getById</span><span class="params">(Integer id)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <blockquote>
 <p>==注意：==</p>
-<p>SpringBoot 2.5.0版本存在一个bug，我们在使用这个版本时，需要在 <code>jar</code> 所在位置的 <code>config</code> 目录下创建一个任意名称的文件夹</p>
+<p><code>SpringBoot</code> 版本低于2.4.3(不含)，Mysql驱动版本大于8.0时，需要在url连接串中配置时区 <code>jdbc:mysql://localhost:3306/ssm_db?serverTimezone=UTC</code>，或在MySQL数据库端配置时区解决此问题</p>
 </blockquote>
-<h2 id="3，SpringBoot整合junit"><a href="#3，SpringBoot整合junit" class="headerlink" title="3，SpringBoot整合junit"></a>3，SpringBoot整合junit</h2><p>回顾 <code>Spring</code> 整合 <code>junit</code></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RunWith(SpringJUnit4ClassRunner.class)</span></span><br><span class="line"><span class="meta">@ContextConfiguration(classes = SpringConfig.class)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">UserServiceTest</span> &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> BookService bookService;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testSave</span><span class="params">()</span>&#123;</span><br><span class="line">        bookService.save();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>4.3  SpringBoot整合mybatisplus</p>
+<p>4.3.1创建模块</p>
+<p><img src="/2022/11/26/05-springboot%E9%85%8D%E7%BD%AEmybatis-puls%E7%9A%84%E6%96%B9%E6%B3%95/wps1.jpg"></p>
+<p><img src="/2022/11/26/05-springboot%E9%85%8D%E7%BD%AEmybatis-puls%E7%9A%84%E6%96%B9%E6%B3%95/wps2.jpg"></p>
+<p>4.3.2关于在pom文件手工导入mybatis puls的坐标<br><img src="/2022/11/26/05-springboot%E9%85%8D%E7%BD%AEmybatis-puls%E7%9A%84%E6%96%B9%E6%B3%95/wps3.jpg"></p>
+<p>3.4.3版本</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--导入mybatis plus 的坐标--&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">  &lt;groupId&gt;com.baomidou&lt;/groupId&gt;</span><br><span class="line">  &lt;artifactId&gt;mybatis-plus-boot-starter&lt;/artifactId&gt;</span><br><span class="line">  &lt;version&gt;3.4.3&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line"> </span><br></pre></td></tr></table></figure>
 
-<p>使用 <code>@RunWith</code> 注解指定运行器，使用 <code>@ContextConfiguration</code> 注解来指定配置类或者配置文件。而 <code>SpringBoot</code> 整合 <code>junit</code> 特别简单，分为以下三步完成</p>
-<ul>
-<li>在测试类上添加 <code>SpringBootTest</code> 注解</li>
-<li>使用 <code>@Autowired</code> 注入要测试的资源</li>
-<li>定义测试方法进行测试</li>
-</ul>
-<h3 id="3-1-环境准备"><a href="#3-1-环境准备" class="headerlink" title="3.1  环境准备"></a>3.1  环境准备</h3><p>创建一个名为 <code>springboot_07_test</code> 的 <code>SpringBoot</code> 工程，工程目录结构如下</p>
-<p><img src="/2022/11/26/04-Springboot-Stu/image-20210917213556673.png"></p>
-<p>在 <code>com.itheima.service</code> 下创建 <code>BookService</code> 接口，内容如下</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">BookService</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">save</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>在 <code>com.itheima.service.impl</code> 包写创建一个 <code>BookServiceImpl</code> 类，使其实现 <code>BookService</code> 接口，内容如下</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">BookServiceImpl</span> <span class="keyword">implements</span> <span class="title class_">BookService</span> &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">save</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;book service is running ...&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="3-2-编写测试类"><a href="#3-2-编写测试类" class="headerlink" title="3.2  编写测试类"></a>3.2  编写测试类</h3><p>在 <code>test/java</code> 下创建 <code>com.itheima</code> 包，在该包下创建测试类，将 <code>BookService</code> 注入到该测试类中</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootTest</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Springboot07TestApplicationTests</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> BookService bookService;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">save</span><span class="params">()</span> &#123;</span><br><span class="line">        bookService.save();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>4.3.3定义实体类</p>
+<p>在 com.sjxy.domain 包下定义实体类 Book，内容如下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Book</span> &#123;</span><br><span class="line">  <span class="keyword">private</span> <span class="type">int</span> id;</span><br><span class="line">  <span class="keyword">private</span> String username;</span><br><span class="line">  <span class="keyword">private</span> String password;</span><br><span class="line">  <span class="keyword">private</span> String gender;</span><br><span class="line">  <span class="keyword">private</span> String addr;</span><br><span class="line"></span><br><span class="line">​		<span class="comment">//setter and  getter</span></span><br><span class="line"></span><br><span class="line">  	<span class="comment">//toString</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<blockquote>
-<p>==注意：==这里的引导类所在包必须是测试类所在包及其子包。</p>
-<p>例如：</p>
-<ul>
-<li>引导类所在包是 <code>com.itheima</code></li>
-<li>测试类所在包是 <code>com.itheima</code></li>
-</ul>
-<p>如果不满足这个要求的话，就需要在使用 <code>@SpringBootTest</code> 注解时，使用 <code>classes</code> 属性指定引导类的字节码对象。如 <code>@SpringBootTest(classes = Springboot07TestApplication.class)</code></p>
-</blockquote>
+<p>4.3.4定义dao接口</p>
+<p>在 com.sjxy.dao 包下定义 BookDao 接口，内容如下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Mapper</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">BookDao</span> <span class="keyword">extends</span> <span class="title class_">BaseMapper</span>&lt;Book&gt; &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Mydatis puls 提供的BaseMapper中有部分的sql方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"> </span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">BaseMapper</span>&lt;T&gt; <span class="keyword">extends</span> <span class="title class_">Mapper</span>&lt;T&gt; &#123;</span><br><span class="line">  <span class="type">int</span> <span class="title function_">insert</span><span class="params">(T entity)</span>;</span><br><span class="line"></span><br><span class="line">  <span class="type">int</span> <span class="title function_">deleteById</span><span class="params">(Serializable id)</span>;</span><br><span class="line"></span><br><span class="line">  <span class="type">int</span> <span class="title function_">deleteByMap</span><span class="params">(<span class="meta">@Param(&quot;cm&quot;)</span> Map&lt;String, Object&gt; columnMap)</span>;</span><br><span class="line"></span><br><span class="line">  <span class="type">int</span> <span class="title function_">delete</span><span class="params">(<span class="meta">@Param(&quot;ew&quot;)</span> Wrapper&lt;T&gt; queryWrapper)</span>;</span><br><span class="line"></span><br><span class="line">  <span class="type">int</span> <span class="title function_">deleteBatchIds</span><span class="params">(<span class="meta">@Param(&quot;coll&quot;)</span> Collection&lt;? extends Serializable&gt; idList)</span>;</span><br><span class="line"></span><br><span class="line">  <span class="type">int</span> <span class="title function_">updateById</span><span class="params">(<span class="meta">@Param(&quot;et&quot;)</span> T entity)</span>;</span><br><span class="line"></span><br><span class="line">  <span class="type">int</span> <span class="title function_">update</span><span class="params">(<span class="meta">@Param(&quot;et&quot;)</span> T entity, <span class="meta">@Param(&quot;ew&quot;)</span> Wrapper&lt;T&gt; updateWrapper)</span>;</span><br><span class="line"></span><br><span class="line">  T <span class="title function_">selectById</span><span class="params">(Serializable id)</span>;</span><br><span class="line"></span><br><span class="line">  List&lt;T&gt; <span class="title function_">selectBatchIds</span><span class="params">(<span class="meta">@Param(&quot;coll&quot;)</span> Collection&lt;? extends Serializable&gt; idList)</span>;</span><br><span class="line"></span><br><span class="line">  List&lt;T&gt; <span class="title function_">selectByMap</span><span class="params">(<span class="meta">@Param(&quot;cm&quot;)</span> Map&lt;String, Object&gt; columnMap)</span>;</span><br><span class="line"></span><br><span class="line">  T <span class="title function_">selectOne</span><span class="params">(<span class="meta">@Param(&quot;ew&quot;)</span> Wrapper&lt;T&gt; queryWrapper)</span>;</span><br><span class="line"></span><br><span class="line">  Integer <span class="title function_">selectCount</span><span class="params">(<span class="meta">@Param(&quot;ew&quot;)</span> Wrapper&lt;T&gt; queryWrapper)</span>;</span><br><span class="line"></span><br><span class="line">  List&lt;T&gt; <span class="title function_">selectList</span><span class="params">(<span class="meta">@Param(&quot;ew&quot;)</span> Wrapper&lt;T&gt; queryWrapper)</span>;</span><br><span class="line">  List&lt;Map&lt;String, Object&gt;&gt; <span class="title function_">selectMaps</span><span class="params">(<span class="meta">@Param(&quot;ew&quot;)</span> Wrapper&lt;T&gt; queryWrapper)</span>;</span><br><span class="line">  List&lt;Object&gt; <span class="title function_">selectObjs</span><span class="params">(<span class="meta">@Param(&quot;ew&quot;)</span> Wrapper&lt;T&gt; queryWrapper)</span>;</span><br><span class="line">  &lt;E <span class="keyword">extends</span> <span class="title class_">IPage</span>&lt;T&gt;&gt; E <span class="title function_">selectPage</span><span class="params">(E page, <span class="meta">@Param(&quot;ew&quot;)</span> Wrapper&lt;T&gt; queryWrapper)</span>;</span><br><span class="line">  &lt;E <span class="keyword">extends</span> <span class="title class_">IPage</span>&lt;Map&lt;String, Object&gt;&gt;&gt; E <span class="title function_">selectMapsPage</span><span class="params">(E page, <span class="meta">@Param(&quot;ew&quot;)</span> Wrapper&lt;T&gt; queryWrapper)</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>因此可以在dao接口部分的sql语句可以不用写但多表查询的时候还是要sql拼接</p>
+<p>4.3.5定义测试类</p>
+<p>在 test/java 下定义包 com.sjxy ，在该包下测试类，内容如下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootTest</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Springboot06MybatisPlusApplicationTests</span> &#123;</span><br><span class="line">  <span class="meta">@Autowired</span></span><br><span class="line">  <span class="keyword">private</span> BookDao bookDao;</span><br><span class="line">  <span class="meta">@Test</span></span><br><span class="line">  <span class="keyword">void</span> <span class="title function_">testGitAll</span><span class="params">()</span>&#123;</span><br><span class="line">    System.**out**.println(bookDao.selectList(<span class="literal">null</span>));</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p> 4.3.6编写配置</p>
+<p>在 application.yml 配置文件中配置如下内容</p>
+<p>配置相关信息</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line"><span class="attr">datasource:</span></span><br><span class="line"> <span class="attr">driver-class-name:</span> <span class="string">com.mysql.cj.jdbc.Driver</span></span><br><span class="line"> <span class="attr">url:</span> <span class="string">jdbc:mysql://localhost:3306/mybatis?serverTimezone=UTC</span></span><br><span class="line"> <span class="attr">username:</span> <span class="string">root</span></span><br><span class="line"> <span class="attr">password:</span> <span class="string">root</span></span><br></pre></td></tr></table></figure>
+
+<p>项目结构目录</p>
+<p><img src="/2022/11/26/05-springboot%E9%85%8D%E7%BD%AEmybatis-puls%E7%9A%84%E6%96%B9%E6%B3%95/wps4.jpg"></p>
+<p> 4.3.7测试</p>
+<p>运行测试方法，我们会看到如下错误信息</p>
+<p><img src="/2022/11/26/05-springboot%E9%85%8D%E7%BD%AEmybatis-puls%E7%9A%84%E6%96%B9%E6%B3%95/wps5.jpg"></p>
+<p>这是因为mp找不到sql中的表</p>
+<p>在实体类中加入注解@TableName（“表名”）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@TableName(&quot;tb_user&quot;)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Book</span> &#123;</span><br><span class="line">  <span class="keyword">private</span> <span class="type">int</span> id;</span><br><span class="line">  <span class="keyword">private</span> String username;</span><br><span class="line">  <span class="keyword">private</span> String password;</span><br><span class="line">  <span class="keyword">private</span> String gender;</span><br><span class="line">  <span class="keyword">private</span> String addr;</span><br><span class="line"></span><br><span class="line">​		<span class="comment">//setter and  getter</span></span><br><span class="line"></span><br><span class="line">  	<span class="comment">//toString</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>再测试</p>
+<p><img src="/2022/11/26/05-springboot%E9%85%8D%E7%BD%AEmybatis-puls%E7%9A%84%E6%96%B9%E6%B3%95/wps6.jpg"></p>
 
                 
             </div>
@@ -548,7 +510,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/2022/11/26/04-Springboot-Stu/">http://example.com/2022/11/26/04-Springboot-Stu/</a>
+                    <a href="http://example.com/2022/11/26/05-springboot%E9%85%8D%E7%BD%AEmybatis-puls%E7%9A%84%E6%96%B9%E6%B3%95/">http://example.com/2022/11/26/05-springboot%E9%85%8D%E7%BD%AEmybatis-puls%E7%9A%84%E6%96%B9%E6%B3%95/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -662,9 +624,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
             <div class="card">
                 <a href="/2022/11/26/05-springboot%E9%85%8D%E7%BD%AEmybatis-puls%E7%9A%84%E6%96%B9%E6%B3%95/">
                     <div class="card-image">
@@ -682,9 +645,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-11-26
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-11-26
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -693,6 +656,7 @@
                         </span>
                     </div>
                 </div>
+
                 
             </div>
         </div>
@@ -703,13 +667,13 @@
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/11/25/03-Springboot-Stu/">
+                <a href="/2022/11/26/04-Springboot-Stu/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="03-Springboot-Stu">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="04-Springboot-Stu">
                         
-                        <span class="card-title">03-Springboot-Stu</span>
+                        <span class="card-title">04-Springboot-Stu</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -720,7 +684,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-11-25
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-11-26
                             </span>
                         <span class="publish-author">
                             
